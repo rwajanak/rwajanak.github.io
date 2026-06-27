@@ -157,6 +157,8 @@ img { display: block; max-width: 100%; }
 .about-art { display: flex; gap: .5rem; font-size: clamp(3rem, 8vw, 5.5rem); justify-content: center; }
 .about-text h2 { color: #fff; margin-bottom: 1rem; }
 .about-text p { color: #c4d6c8; margin-bottom: 1rem; max-width: 56ch; }
+.about-text .btn-ghost { border-color: rgba(255,255,255,.55); color: #fff; margin-top: .3rem; }
+.about-text .btn-ghost:hover { background: rgba(255,255,255,.12); }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--green-900); color: #cfdcd2; padding: 3rem 0 1.5rem; }

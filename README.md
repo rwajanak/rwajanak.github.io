@@ -1,41 +1,49 @@
-# 🌿 Verdant — Plant Storefront
+# 🌿 Verdant — Plant Catalog
 
-A clean, responsive storefront for selling houseplants, hosted on GitHub Pages.
-Everything runs client-side — no server or build step required.
+A clean, responsive **landing page and catalog** for a plant seller, hosted on
+GitHub Pages. Visitors browse the collection here; buying happens on
+**Facebook Marketplace**. Everything runs client-side — no server or build step.
 
 **Live site:** <https://rwajanak.github.io>
 
+## How it works
+
+This site is a shopfront *catalog*, not a checkout. There's no payment on the
+page. Each plant has an **"Add to list"** button so visitors can keep track of
+what they like, and every **"Buy on Facebook Marketplace"** button sends them to
+your Marketplace profile to message you and arrange pickup or delivery.
+
 ## Features
 
-- **Product catalog** with category filtering (Easy-care, Statement, Pet-friendly)
-- **Shopping cart** that persists across visits (`localStorage`)
-- **Free-shipping progress** ("add $X more for free shipping")
-- **Demo checkout** that builds an order email via the visitor's mail client (no payment processing)
-- **Graceful image fallbacks** — broken photos become a styled emoji tile
+- **Catalog of 24 plants** across 5 type categories: Houseplants, Succulents &
+  Cacti, Outdoor & Garden, Herbs & Edibles, and Flowering
+- **Category filtering** so visitors can browse by plant type
+- **Saved list** (the "cart") that persists across visits (`localStorage`) — for
+  tracking interest only, with no checkout
+- **Facebook Marketplace links** throughout (hero, nav, about, footer, list)
+- **Graceful image fallbacks** — a broken photo becomes a styled emoji tile
 - Fully responsive, accessible, and dependency-free (just one Google Fonts link)
 
 ## Files
 
-| File         | Purpose                                       |
-| ------------ | --------------------------------------------- |
-| `index.html` | Page structure & content                      |
-| `styles.css` | All styling                                   |
-| `app.js`     | Product data, cart logic, filtering, checkout |
+| File         | Purpose                                          |
+| ------------ | ------------------------------------------------ |
+| `index.html` | Page structure & content                         |
+| `styles.css` | All styling                                      |
+| `app.js`     | Product data, categories, filtering, saved list  |
+| `verify.sh`  | Curls the live site to confirm it's serving      |
 
 ## Customizing
 
-- **Add / edit products:** update the `PRODUCTS` array at the top of `app.js`.
-  Each product needs an `id`, `name`, `price`, `category`, `img`, `emoji`, and `desc`.
+- **⚠️ Set your Marketplace link:** edit `MARKETPLACE_URL` near the top of
+  `app.js` — it's the destination for every "Buy on Facebook Marketplace" button.
+- **Add / edit plants:** update the `PRODUCTS` array in `app.js`. Each plant needs
+  an `id`, `name`, `sci`, `price`, `category`, `img`, `emoji`, `light`, `care`,
+  `petSafe`, and `desc`. Use a `category` id that matches `CATEGORIES`.
 - **Change categories:** edit the `CATEGORIES` array in `app.js`.
-- **Shipping & contact:** tweak `FREE_SHIP_THRESHOLD`, `SHIPPING_FEE`, and `STORE_EMAIL` in `app.js`.
+- **Use your own photos:** replace each product's `img` URL. If a photo fails to
+  load, the card automatically shows the plant's `emoji` on a green tile.
 - **Branding & colors:** edit the `:root` CSS variables in `styles.css`.
-
-## Going further (real payments)
-
-This is a demo store — checkout opens a pre-filled email rather than charging a card.
-To take real payments on a static site, drop in a hosted checkout such as
-[Stripe Payment Links](https://stripe.com/payments/payment-links),
-[Snipcart](https://snipcart.com/), or [Gumroad](https://gumroad.com/) buttons.
 
 ## Local preview
 

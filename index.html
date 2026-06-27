@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Verdant — thoughtfully grown houseplants delivered to your door. Shop monstera, snake plants, pothos and more." />
-  <title>Verdant · House Plants for Happy Homes</title>
+  <meta name="description" content="Verdant — home-grown houseplants. Browse our collection and buy on Facebook Marketplace, with local pickup and delivery." />
+  <title>Verdant · Home-Grown House Plants</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -19,8 +19,9 @@
         <a href="#shop">Shop</a>
         <a href="#about">About</a>
         <a href="#care">Plant Care</a>
+        <a href="#" data-marketplace target="_blank" rel="noopener">Marketplace ↗</a>
       </nav>
-      <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+      <button class="cart-btn" id="cartBtn" aria-label="Open your list">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <span class="cart-count" id="cartCount">0</span>
       </button>
@@ -30,17 +31,17 @@
   <section class="hero">
     <div class="wrap hero-inner">
       <div class="hero-text">
-        <p class="eyebrow">Greenhouse-grown · Shipped with care</p>
+        <p class="eyebrow">Home-grown houseplants · Local pickup &amp; delivery</p>
         <h1>Bring the outside in.</h1>
-        <p class="lead">Hand-picked houseplants, potted and ready to thrive. Free delivery on orders over $75 and a 30-day happy-plant guarantee.</p>
+        <p class="lead">Browse our collection of healthy, home-grown plants. Found one you love? Message us on Facebook Marketplace to buy — local pickup and delivery available.</p>
         <div class="hero-actions">
-          <a href="#shop" class="btn btn-primary">Shop plants</a>
-          <a href="#care" class="btn btn-ghost">Care guides</a>
+          <a href="#" class="btn btn-primary" data-marketplace target="_blank" rel="noopener">Shop on Facebook Marketplace ↗</a>
+          <a href="#shop" class="btn btn-ghost">Browse the collection</a>
         </div>
         <ul class="hero-badges">
-          <li>🚚 Carbon-neutral shipping</li>
-          <li>🌱 Ethically propagated</li>
-          <li>💚 30-day guarantee</li>
+          <li>🌱 Home-grown &amp; healthy</li>
+          <li>📍 Local pickup</li>
+          <li>💬 Buy via Marketplace</li>
         </ul>
       </div>
       <div class="hero-art" aria-hidden="true">
@@ -74,8 +75,8 @@
         </article>
         <article class="care-card">
           <span class="care-icon">🌡️</span>
-          <h3>Keep it cozy</h3>
-          <p>Indoor plants love 65–80°F and a little humidity. Skip the cold drafts and heat vents.</p>
+          <h3>Right plant, right spot</h3>
+          <p>Match each plant to its home — cozy and humid indoors, or the right sun and season outdoors. Ask us and we'll point you the right way.</p>
         </article>
       </div>
     </section>
@@ -84,8 +85,9 @@
       <div class="about-art" aria-hidden="true"><span>🌵</span><span>🌿</span><span>🍃</span></div>
       <div class="about-text">
         <h2>Grown by people who love plants</h2>
-        <p>Verdant started in a sunlit apartment with three pots and a long list of plants we wanted to share. Today we propagate everything in our own greenhouse, so each plant arrives healthy, rooted, and ready for its new home.</p>
-        <p>Every order is packed by hand and shipped in recyclable, plant-safe materials. If your plant doesn't arrive thriving, we'll make it right — that's our 30-day guarantee.</p>
+        <p>Verdant started in a sunlit apartment with three pots and a long list of plants we wanted to share. Today we propagate everything ourselves, so every plant is healthy, well-rooted, and ready for its new home.</p>
+        <p>This site is our catalog — browse what's available here, then head to our Facebook Marketplace to buy. We offer local pickup and delivery, and we're always happy to help you choose the right plant.</p>
+        <a href="#" class="btn btn-ghost" data-marketplace target="_blank" rel="noopener">Visit our Facebook Marketplace ↗</a>
       </div>
     </section>
   </main>
@@ -94,42 +96,41 @@
     <div class="wrap footer-inner">
       <div>
         <a href="#top" class="logo logo--light">🌿 Verdant</a>
-        <p class="footer-note">Houseplants for happy homes.</p>
+        <p class="footer-note">Home-grown plants for happy spaces.</p>
       </div>
       <div class="footer-cols">
         <div>
-          <h4>Shop</h4>
-          <a href="#shop">All plants</a>
-          <a href="#shop">Easy-care</a>
-          <a href="#shop">Pet-friendly</a>
+          <h4>Browse</h4>
+          <a href="#shop">Houseplants</a>
+          <a href="#shop">Succulents &amp; cacti</a>
+          <a href="#shop">Outdoor &amp; garden</a>
         </div>
         <div>
           <h4>Help</h4>
           <a href="#care">Care guides</a>
           <a href="#about">About us</a>
-          <a href="mailto:hello@verdant.example">Contact</a>
+          <a href="#" data-marketplace target="_blank" rel="noopener">Facebook Marketplace ↗</a>
         </div>
       </div>
     </div>
-    <p class="copyright">© <span id="year"></span> Verdant Plant Co. · This is a demo storefront.</p>
+    <p class="copyright">© <span id="year"></span> Verdant Plant Co. · Browse here, buy on Facebook Marketplace.</p>
   </footer>
 
-  <!-- Cart drawer -->
+  <!-- Saved list drawer -->
   <div class="overlay" id="overlay" hidden></div>
-  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Your saved plant list">
     <div class="cart-header">
-      <h2>Your cart</h2>
-      <button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button>
+      <h2>Your list</h2>
+      <button class="icon-btn" id="closeCart" aria-label="Close list">✕</button>
     </div>
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-footer" id="cartFooter">
       <div class="cart-row">
-        <span>Subtotal</span>
+        <span>Estimated total</span>
         <strong id="cartSubtotal">$0.00</strong>
       </div>
-      <p class="ship-note" id="shipNote"></p>
-      <button class="btn btn-primary btn-block" id="checkoutBtn">Order by email</button>
-      <p class="order-note">We'll reply to confirm availability, payment, and delivery.</p>
+      <p class="order-note">A guide only — message us on Facebook Marketplace to buy and arrange pickup or delivery.</p>
+      <a class="btn btn-primary btn-block" data-marketplace target="_blank" rel="noopener">Buy on Facebook Marketplace ↗</a>
     </div>
   </aside>
 
