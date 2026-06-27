@@ -128,26 +128,10 @@
         <strong id="cartSubtotal">$0.00</strong>
       </div>
       <p class="ship-note" id="shipNote"></p>
-      <button class="btn btn-primary btn-block" id="checkoutBtn">Checkout</button>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Order by email</button>
+      <p class="order-note">We'll reply to confirm availability, payment, and delivery.</p>
     </div>
   </aside>
-
-  <!-- Checkout modal -->
-  <div class="modal" id="checkoutModal" hidden>
-    <div class="modal-card">
-      <button class="icon-btn modal-close" id="closeModal" aria-label="Close">✕</button>
-      <h2>Checkout</h2>
-      <p class="modal-sub">Fill in your details and we'll email you an order confirmation.</p>
-      <form id="checkoutForm">
-        <label>Full name<input type="text" name="name" required autocomplete="name" /></label>
-        <label>Email<input type="email" name="email" required autocomplete="email" /></label>
-        <label>Shipping address<textarea name="address" rows="2" required autocomplete="street-address"></textarea></label>
-        <div class="order-review" id="orderReview"></div>
-        <button type="submit" class="btn btn-primary btn-block">Place order</button>
-        <p class="modal-fineprint">Demo checkout — no payment is taken. Placing an order opens your email client with the order details.</p>
-      </form>
-    </div>
-  </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 

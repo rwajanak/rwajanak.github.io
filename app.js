@@ -205,7 +205,6 @@ const cartSubtotalEl = $("#cartSubtotal");
 const shipNoteEl = $("#shipNote");
 const drawer = $("#cartDrawer");
 const overlay = $("#overlay");
-const modal = $("#checkoutModal");
 
 // --- Render: filters -------------------------------------------------------
 function renderFilters() {
@@ -359,7 +358,7 @@ function renderCart() {
   }
 }
 
-// --- Drawer & modal --------------------------------------------------------
+// --- Drawer ----------------------------------------------------------------
 function openCart() {
   drawer.classList.add("open");
   drawer.setAttribute("aria-hidden", "false");
@@ -370,43 +369,14 @@ function closeCart() {
   drawer.setAttribute("aria-hidden", "true");
   overlay.hidden = true;
 }
-function openModal() {
-  if (cartEntries().length === 0) {
+
+// --- Order by email (no backend, no payment) -------------------------------
+function emailOrder() {
+  const entries = cartEntries();
+  if (entries.length === 0) {
     showToast("Your cart is empty");
     return;
   }
-  renderOrderReview();
-  modal.hidden = false;
-}
-function closeModal() {
-  modal.hidden = true;
-}
-
-function renderOrderReview() {
-  const entries = cartEntries();
-  const subtotal = cartSubtotal();
-  const shipping = subtotal >= FREE_SHIP_THRESHOLD ? 0 : SHIPPING_FEE;
-  const total = subtotal + shipping;
-  $("#orderReview").innerHTML =
-    entries
-      .map(
-        (e) => `<div class="or-line"><span>${e.qty}× ${e.product.name}</span><span>${CURRENCY(
-          e.product.price * e.qty
-        )}</span></div>`
-      )
-      .join("") +
-    `<div class="or-line"><span>Shipping</span><span>${
-      shipping === 0 ? "Free" : CURRENCY(shipping)
-    }</span></div>` +
-    `<div class="or-total"><span>Total</span><span>${CURRENCY(total)}</span></div>`;
-}
-
-// --- Checkout (email-based, no backend) ------------------------------------
-function handleCheckout(e) {
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  const entries = cartEntries();
   const subtotal = cartSubtotal();
   const shipping = subtotal >= FREE_SHIP_THRESHOLD ? 0 : SHIPPING_FEE;
   const total = subtotal + shipping;
@@ -416,29 +386,20 @@ function handleCheckout(e) {
     .join("\n");
 
   const body =
-    `New plant order from ${data.get("name")}\n\n` +
-    `Items:\n${lines}\n\n` +
+    `Hi Verdant, I'd like to order:\n\n${lines}\n\n` +
     `Subtotal: ${CURRENCY(subtotal)}\n` +
     `Shipping: ${shipping === 0 ? "Free" : CURRENCY(shipping)}\n` +
     `Total: ${CURRENCY(total)}\n\n` +
-    `Ship to:\n${data.get("name")}\n${data.get("address")}\n\n` +
-    `Reply-to: ${data.get("email")}`;
+    `Please confirm availability and how to pay.\n\n` +
+    `My details:\nName:\nDelivery address:\nPhone:`;
 
   const mailto =
     `mailto:${STORE_EMAIL}` +
-    `?subject=${encodeURIComponent("Plant order — " + data.get("name"))}` +
+    `?subject=${encodeURIComponent("Plant order")}` +
     `&body=${encodeURIComponent(body)}`;
 
   window.location.href = mailto;
-
-  // Clear cart and confirm
-  cart = {};
-  saveCart();
-  renderCart();
-  closeModal();
-  closeCart();
-  form.reset();
-  showToast("Order ready! Check your email client to send. 🌿");
+  showToast("Order email ready — add your details and send 🌿");
 }
 
 // --- Toast & micro-interactions --------------------------------------------
@@ -467,13 +428,10 @@ function init() {
   $("#cartBtn").addEventListener("click", openCart);
   $("#closeCart").addEventListener("click", closeCart);
   overlay.addEventListener("click", closeCart);
-  $("#checkoutBtn").addEventListener("click", openModal);
-  $("#closeModal").addEventListener("click", closeModal);
-  modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
-  $("#checkoutForm").addEventListener("submit", handleCheckout);
+  $("#checkoutBtn").addEventListener("click", emailOrder);
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { closeCart(); closeModal(); }
+    if (e.key === "Escape") closeCart();
   });
 
   $("#year").textContent = new Date().getFullYear();

@@ -201,23 +201,7 @@ img { display: block; max-width: 100%; }
 .cart-row { display: flex; justify-content: space-between; font-size: 1.05rem; margin-bottom: .4rem; }
 .cart-row strong { font-family: "Fraunces", serif; font-size: 1.3rem; color: var(--green-900); }
 .ship-note { font-size: .82rem; color: var(--green-500); margin-bottom: .9rem; }
-
-/* ---------- Modal ---------- */
-.modal { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; background: rgba(20,40,27,.5); padding: 1rem; }
-.modal-card { background: var(--cream); border-radius: 22px; padding: 2rem; width: min(460px, 100%); position: relative; max-height: 92vh; overflow-y: auto; box-shadow: var(--shadow); }
-.modal-card h2 { font-size: 1.7rem; color: var(--green-900); }
-.modal-sub { color: var(--muted); font-size: .92rem; margin: .3rem 0 1.3rem; }
-.modal-close { position: absolute; top: 1rem; right: 1.2rem; }
-#checkoutForm label { display: block; font-size: .85rem; font-weight: 600; color: var(--green-700); margin-bottom: 1rem; }
-#checkoutForm input, #checkoutForm textarea {
-  width: 100%; margin-top: .35rem; padding: .7rem .9rem; border: 1.5px solid var(--line);
-  border-radius: 12px; font: inherit; background: #fff; resize: vertical;
-}
-#checkoutForm input:focus, #checkoutForm textarea:focus { outline: none; border-color: var(--green-500); }
-.order-review { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1rem; margin-bottom: 1.2rem; font-size: .9rem; }
-.order-review .or-line { display: flex; justify-content: space-between; padding: .25rem 0; color: var(--muted); }
-.order-review .or-total { display: flex; justify-content: space-between; padding-top: .6rem; margin-top: .4rem; border-top: 1px solid var(--line); font-weight: 700; color: var(--green-900); }
-.modal-fineprint { font-size: .78rem; color: var(--muted); text-align: center; margin-top: .9rem; }
+.order-note { font-size: .78rem; color: var(--muted); text-align: center; margin-top: .7rem; }
 
 /* ---------- Toast ---------- */
 .toast {
